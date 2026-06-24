@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    ll N, D, S;
+    cin >> N >> D >> S;
+    ll nc = N / S;
+    ll dc = D / S;
+    bool rec = false;
+    ll Y = min(2 * dc, nc);
+    if (Y <= 1) { rec = true; }
+    else if (Y - 1 <= dc) { rec = true; }
+    else if (Y % 2 == 0) { rec = true; }
+    else {
+        for (ll x = 2; x * x <= Y && !rec; x++) {
+            if (Y % x == 0) {
+               
+                if ((Y - Y/x) <= dc) { rec = true; }
+            }
+        }
+    }
+    ll ans = max(1LL, (rec) ? Y : Y - 1);
+    cout << ans * S << "\n";
+    return 0;
+}
