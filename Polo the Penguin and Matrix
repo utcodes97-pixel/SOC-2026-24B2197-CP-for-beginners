@@ -1,0 +1,17 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main() {
+int n,m,d;cin>>n>>m>>d;int sum=0;int ans;
+int no=n*m;vector<int>v(no);vector<int>q(no);int e;
+unordered_set<int>rem;
+for(int i=0;i<no;i++){cin>>e;v[i]=e;;q[i]=e/d;rem.insert(e%d);}
+if(rem.size()>1){cout<<-1<<"\n";return 0;}
+sort(q.begin(), q.end());
+int index=no/2;
+for(int i=0;i<no;i++){
+sum+=abs(q[index]-q[i]);
+}
+ans=sum;
+cout<<ans<<"\n";return 0;
+}
+    
