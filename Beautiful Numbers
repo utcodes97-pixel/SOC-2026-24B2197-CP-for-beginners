@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);int T;cin>>T;
+    
+    while(T--){
+        int sum=0;
+        string s;cin>>s;
+        vector<int>a;
+        for(int i=0;i<s.size();i++){
+            int e=s[i]-'0';
+            a.push_back(e-(i==0));sum+=e;
+        }
+        
+        sort(a.begin(),a.end());
+        int ans=0;
+        while(sum>9){
+            sum-=a.back();a.pop_back();ans++;
+        }
+        cout<<ans<<"\n";
+       
+    }
+    
+    return 0;
+}
