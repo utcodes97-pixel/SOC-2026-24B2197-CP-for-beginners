@@ -1,0 +1,53 @@
+#include <bits/stdc++.h>
+using namespace std;
+const int maxm=2e5+1;
+vector<int>divs[maxm];
+void pre(){
+    
+    for(int i=2;i<maxm;i++){
+        for(int j=i;j<maxm;j+=i){
+            divs[j].push_back(i);
+        }
+    }
+}
+void solve(){
+    int n;cin>>n;vector<int>v(n+1);for(int i1=1;i1<=n;i1++){cin>>v[i1];}
+    vector<int>maxsum;
+    vector<bool>vis(maxm,false);
+    vector<int>cnt(maxm,0);
+    int ans=0;
+    for(int i=1;i<=n;i++){
+        vector<int>next;
+        for(int d:divs[v[i]]){cnt[d]++;
+        if(cnt[d]!=i){ans=max(ans,cnt[d]);}
+        else if(!vis[d]){
+              vis[d]=true;
+              next.push_back(d);
+        }
+        }
+        for(int s:maxsum){
+            if(cnt[s]!=i){ans=max(ans,cnt[s]);vis[s]=false;}
+            else{
+                next.push_back(s);
+            }
+        }
+        maxsum=move(next);
+        cout<<ans<<" ";
+    }
+    cout<<endl;
+}
+
+
+
+
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);int t;cin>>t;
+    pre();
+    while(t--){
+        solve();
+    }
+    
+    return 0;
+}
