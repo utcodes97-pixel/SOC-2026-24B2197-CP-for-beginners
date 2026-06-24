@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);int n;cin>>n;
+    set<pair<int,int>>s;s.insert({0,n});
+    multiset<int>len;
+    int x;cin>>x;len.insert(n);int e;
+    for(int i=0;i<x;i++){
+       cin>>e;
+       auto it=s.upper_bound({e,0});
+       it--;
+       int start=it->first;
+       int end=it->second;
+       s.erase(it);
+      
+        len.erase(len.find(end - start));
+         s.insert({start,e});s.insert({e,end});
+          len.insert(end-e);len.insert(e-start);
+          cout<<*len.rbegin()<<"\n";
+    }
+    
+ 
+    return 0;
+}
