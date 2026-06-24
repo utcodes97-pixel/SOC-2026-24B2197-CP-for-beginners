@@ -1,0 +1,56 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+void solve() {
+    int x, y;
+    cin >> x >> y;
+
+    int n = x + y;
+    if ((n % 2 == 0 && x == 0) || (n % 2 == 1 && y == 0)) {
+        cout << "NO\n";
+        return;
+    }
+
+        if (n % 2 == 0) x--;
+    else y--;
+
+    if (x > y) {
+        cout << "NO\n";
+        return;
+    }
+
+    cout << "YES\n";
+
+    vector<pair<int,int>> edges;
+
+    int nxt = 2;
+    while (y > x) {
+        edges.push_back({1, nxt});
+        nxt++;
+        y--;
+    }
+
+    while (x--) {
+        int u = nxt++;
+        int v = nxt++;
+
+        edges.push_back({1, u});
+        edges.push_back({u, v});
+    }
+
+    for (auto [u,v] : edges)
+        cout << u << " " << v << "\n";
+}
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int T;
+    cin >> T;
+
+    while (T--)
+        solve();
+
+    return 0;
+}
