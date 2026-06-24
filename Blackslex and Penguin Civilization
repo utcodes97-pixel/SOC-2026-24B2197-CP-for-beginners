@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+void solve(){
+    int n;cin>>n;
+    int ele=1<<n;
+    vector<int>ans;
+    vector<int>v(ele,0);
+    for(int i=n;i>0;i--){
+        int no=(1<<i)-1;
+       if(v[no]!=1){v[no]=1;ans.push_back(no);} 
+        int cnt=1<<(n-i);
+        for(int j=1;j<cnt;j++){
+            int num=(j<<i) +no;
+            if(v[num]==0){ans.push_back(num);v[num]=1;}
+        }
+    }   
+    for(int ii=0;ii<ele;ii++){if(v[ii]==0){ans.push_back(ii);}}
+   for(auto x:ans){cout<<x<<" ";}cout<<endl;
+}
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int T;cin>>T;
+    while(T--){solve();}
+    return 0;
+}
