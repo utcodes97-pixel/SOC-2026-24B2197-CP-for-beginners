@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int t;
+    cin >> t;
+
+    while(t--){
+        long long l, r;
+        cin >> l >> r;
+
+        long long diff = r - l;
+
+        long long s = sqrtl(1 + 8.0 * diff);
+
+        while((s+1)*(s+1) <= 1 + 8*diff) s++;
+        while(s*s > 1 + 8*diff) s--;
+
+        cout << (1 + s) / 2 << "\n";
+    }
+}
