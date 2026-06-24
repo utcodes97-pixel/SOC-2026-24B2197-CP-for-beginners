@@ -1,0 +1,15 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int t;cin>>t;
+    int a,b,n;
+    while(t--){
+        cin>>a>>b>>n;
+        if(a/n<b && a>b){cout<<2<<"\n";}
+        else{cout<<1<<"\n";}
+    }
+    return 0;
+}
