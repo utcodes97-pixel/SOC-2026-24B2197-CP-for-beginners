@@ -1,0 +1,20 @@
+#include <bits/stdc++.h>
+using namespace std;
+void solve(){
+    long long n,m,k;cin>>n>>m>>k;
+    if(m<n-1 || m>(n*(n-1)/2)){cout<<"NO"<<"\n";return;}
+    else if(n==1){cout<<((k>1)?"YES":"NO");cout<<"\n";return;}
+else if(m==(n*(n-1)/2)){cout<<((k>2)?"YES":"NO");cout<<"\n";return;}
+ 
+else {cout<<((k>3)?"YES":"NO");cout<<"\n";return;}
+}
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);int T;cin>>T;
+    while(T--){
+        solve();
+    }
+    
+    return 0;
+}
