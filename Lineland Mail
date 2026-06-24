@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int n;cin>>n;
+    vector<int>v(n);for(int i=0;i<n;i++)cin>>v[i];
+if(n==2){
+    int dist=v[1]-v[0];
+    cout<<dist<<" "<<dist<<"\n";
+    cout<<dist<<" "<<dist<<"\n";
+    return 0;
+}
+
+
+    //first
+    cout<<(v[1]-v[0])<<" "<<v[n-1]-v[0]<<"\n";
+    //mid
+    for(int i=1;i<n-1;i++){
+        int mini=min((v[i]-v[i-1]),(v[i+1]-v[i]));
+        int maxi=max((v[i]-v[0]),(v[n-1]-v[i]));
+        cout<<mini<<" "<<maxi<<"\n";
+    }
+    //last
+cout<<(v[n-1]-v[n-2])<<" "<<v[n-1]-v[0]<<"\n";
+
+    return 0;
+}
