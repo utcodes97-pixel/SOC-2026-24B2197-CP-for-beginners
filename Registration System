@@ -1,0 +1,15 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int n;cin>>n;string st;
+    unordered_map<string,int>mp;
+    while(n--){
+        cin>>st;
+        if(mp.find(st)==mp.end()){cout<<"OK"<<"\n";mp[st]=1;}
+        else{cout<<st<<mp[st]<<"\n";mp[st]++;}
+    }
+    return 0;
+}
