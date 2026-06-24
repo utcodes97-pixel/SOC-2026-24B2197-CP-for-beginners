@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+using namespace std;
+using ll=long long;
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+   int t;cin>>t;while(t--){
+    ll ans;
+    ll n;cin>>n;
+    ll digit=1;ll start=1;ll no=9 ;
+    while(n>digit*no){
+        n=n-(digit*no);digit++;no=no*10;start*=10;
+    }
+    ans=start+(n-1)/digit;
+    string s=to_string(ans);
+ 
+ 
+    cout<<(s[(n-1)%digit])<<"\n";
+   }
+    return 0;
+}
