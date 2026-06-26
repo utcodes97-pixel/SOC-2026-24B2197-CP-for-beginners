@@ -1,0 +1,46 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+const int MOD = 1e9 + 7; // this is a prime number
+
+// power function
+int pw(int a, ll b) {
+    if (b == 0) {
+        return 1;
+    }
+    else if (b % 2 == 0) {
+        int c = pw(a, b / 2);
+        return (1LL * c * c) % MOD;
+    }
+    else {
+        int c = pw(a, (b - 1) / 2);
+        return ((1LL * c * c) % MOD * a) % MOD;
+    }
+}
+
+// factorial array
+vector<int> f;
+
+// nCr calculation function
+int nCr(int n, int r) {
+    return (1LL * ((1LL * f[n] * pw(f[n - r], MOD - 2)) % MOD) *
+            pw(f[r], MOD - 2)) % MOD;
+}
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int n;
+    cin >> n;
+
+    f.resize(n + 1);
+    f[0] = 1;
+
+    for (int i = 1; i <= n; i++) {
+        f[i] = (1LL * f[i - 1] * i) % MOD;
+    }
+
+    return 0;
+}
