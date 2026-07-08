@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+void solve(){int n;cin>>n;vector<int>a(n+1);for(int i=1;i<=n;i++){cin>>a[i];}
+int l=1;int r=n;
+int max=n;int min=1;int s1,s2;bool anss=false;
+while(l<r){
+    s1=l;s2=r;
+    if(a[l]==max ){l++;max--;}
+    else if(a[l]==min ){l++;min++;}
+    if(a[r]==max ){r--;max--;}
+    else if(a[r]==min ){r--;min++;}
+    if(l<r &&  s1==l && s2==r){anss=true;break;}
+}
+    if(anss){cout<<l<<" "<<r<<"\n";return;}
+    cout<<-1<<"\n";
+}
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);int T;cin>>T;
+    while(T--){
+        solve();
+    }
+    
+    return 0;
+}
