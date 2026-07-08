@@ -1,0 +1,18 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    string s;cin>>s;
+    ll a=0,b=0,c=0;// a is no of w b is no of wo c is no wow 
+  
+    for(int i=1;i<s.size();i++){
+        if(s[i]=='o'){b+=a;}
+        else if(s[i-1]=='v'){a++;c+=b;}
+    }
+    cout<<c<<"\n";
+    
+    return 0;
+}
